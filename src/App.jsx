@@ -3,10 +3,11 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import {
   About,
   Cocktail,
-  Error,
   HomeLayout,
   Landing,
   Newsletter,
+  Error,
+  SinglePageError,
 } from './pages';
 
 import { loader as landingLoader } from './pages/Landing';
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
       {
         index: true,
         loader: landingLoader,
+        errorElement: <SinglePageError />,
         element: <Landing />,
       },
       {
