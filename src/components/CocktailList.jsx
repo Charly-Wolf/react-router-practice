@@ -15,7 +15,7 @@ const CocktailList = ({ drinks }) => {
       name: strDrink,
       image: strDrinkThumb,
       info: strAlcoholic,
-      class: strGlass,
+      glass: strGlass,
     };
   });
 
