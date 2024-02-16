@@ -1,10 +1,18 @@
-import { Form } from 'react-router-dom';
+import { Form, redirect } from 'react-router-dom';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+
+const newsletterUrl = 'https://www.course-api.com/cocktails-newsletter';
 
 export const action = async ({ request }) => {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
-  console.log(data);
-  return null;
+  const response = await axios.post(newsletterUrl, data);
+
+  console.log(response);
+  toast.success(response.data.msg);
+
+  return redirect('/');
 };
 
 const Newsletter = () => {
@@ -23,7 +31,7 @@ const Newsletter = () => {
           className='form-input'
           name='name'
           id='name'
-          required
+          // required
           defaultValue='Joe'
         />
       </div>
@@ -37,7 +45,7 @@ const Newsletter = () => {
           className='form-input'
           name='lastName'
           id='lastName'
-          required
+          // required
           defaultValue='Deer'
         />
       </div>
@@ -51,8 +59,8 @@ const Newsletter = () => {
           className='form-input'
           name='email'
           id='email'
-          required
-          defaultValue='joe.deer@test.com'
+          // required
+          defaultValue='test@test.com'
         />
       </div>
       <button
