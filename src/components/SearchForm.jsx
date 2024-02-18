@@ -20,6 +20,7 @@ const SearchForm = ({ searchTerm }) => {
           type='search'
           name='search'
           className='form-input'
+          placeholder='Search for an ingredient...'
           defaultValue={searchTerm}
           ref={searchInputRef}
         />
